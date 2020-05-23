@@ -9,7 +9,13 @@ const BurgerDrawing = (props) => {
             <div className={classes.Seeds2}></div>
         </div>
     const BreadBottom = <div className={classes.BreadBottom}></div>
-    const ingredientElements = props.ingredients.map((ingredient, index) => <div className={classes[ingredient]} key={index}></div>)
+
+    let ingredientElements = props.ingredients.map((ingredient, index) => <div className={classes[ingredient]} key={index}></div>)
+
+    if(ingredientElements.length === 0){
+        ingredientElements = <p>Start Composing your burger !</p>
+    }
+    
     return(
         <div className={classes.Burger}>
             {breadTop}

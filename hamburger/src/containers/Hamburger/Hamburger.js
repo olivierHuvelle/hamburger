@@ -57,7 +57,7 @@ class Hamburger extends Component
         return(
             <section className="Hamburger">
                 <h2>Votre hamburger</h2>
-                <p>Prix total : {this.state.price} $</p>
+                <p>Prix total : {this.state.price.toFixed(2)} $</p>
                 <BurgerDrawing ingredients={this.state.composition}/>
                 <Ingredients ingredients={this.state.ingredients} change={this.ingredientHandler.bind(this)}/>
             </section>
