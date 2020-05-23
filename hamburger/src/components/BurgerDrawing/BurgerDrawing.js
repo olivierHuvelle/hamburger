@@ -1,18 +1,17 @@
 import React from 'react'
-import './BurgerDrawing.css'
+import classes from './BurgerDrawing.module.css'
 import PropTypes from 'prop-types'
 
 const BurgerDrawing = (props) => {
     const breadTop = 
-        <div className="BreadTop">
-            <div className="Seeds1"></div>
-            <div className="Seeds2"></div>
+        <div className={classes.BreadTop}>
+            <div className={classes.Seeds1}></div>
+            <div className={classes.Seeds2}></div>
         </div>
-    const BreadBottom = <div className="BreadBottom"></div>
-    const ingredientElements = props.ingredients.map((ingredient, index) => <div className={ingredient} key={index}></div>)
-
+    const BreadBottom = <div className={classes.BreadBottom}></div>
+    const ingredientElements = props.ingredients.map((ingredient, index) => <div className={classes[ingredient]} key={index}></div>)
     return(
-        <div className="Burger">
+        <div className={classes.Burger}>
             {breadTop}
             {ingredientElements}
             {BreadBottom}
