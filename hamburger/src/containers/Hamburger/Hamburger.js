@@ -14,6 +14,7 @@ class Hamburger extends Component
         ], 
         price : 0, 
         composition : [],
+        purchasable : false,
     }
     
     ingredientHandler = (ingredientName, direction) => {
@@ -32,6 +33,7 @@ class Hamburger extends Component
             this.udpateIngredients(updatedState, ingredient, direction) 
             this.updatePrice() 
             this.updateComposition(ingredient.name, direction)
+            this.udpatePurchasable()
         }
     }
 
@@ -52,6 +54,10 @@ class Hamburger extends Component
         this.setState({ composition : updatedState})
     }
 
+    udpatePurchasable = () => {
+        this.setState( prevState => ( {purchasable : prevState.price !== 0 ? true : false }))
+    }
+
     render() 
     {
         return(
@@ -60,6 +66,7 @@ class Hamburger extends Component
                 <p>Prix total : {this.state.price.toFixed(2)} $</p>
                 <BurgerDrawing ingredients={this.state.composition}/>
                 <Ingredients ingredients={this.state.ingredients} change={this.ingredientHandler.bind(this)}/>
+                <button disabled={!this.state.purchasable}>Acheter</button>
             </section>
         )
     }
