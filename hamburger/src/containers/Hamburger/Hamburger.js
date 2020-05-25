@@ -4,6 +4,7 @@ import BurgerDrawing from '../../components/BurgerDrawing/BurgerDrawing'
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/OrderSummary/OrderSummary'
 
+
 class Hamburger extends Component
 {
     state = {
@@ -61,25 +62,29 @@ class Hamburger extends Component
     }
 
     purchaseHandler = () => {
-        this.setState({ purchasing : true }) //selon moi pas féroce ca ... il faudrait une croix pour fermer le modal 
+        this.setState({ purchasing : true }) 
+    }
+
+    modalHandle = (show) => {
+      
+        this.state.purchasable && show ? this.setState({purchasing : true}) : this.setState({purchasing : false})
     }
 
     render() 
     {
         return(
             <section className="Hamburger">
-                <Modal>
+                <Modal visible={this.state.purchasing} change={this.modalHandle} >
                     <OrderSummary ingredients={this.state.ingredients}/>
                 </Modal>
                 <h2>Votre hamburger</h2>
                 <p>Prix total : {this.state.price.toFixed(2)} $</p>
                 <BurgerDrawing ingredients={this.state.composition}/>
                 <Ingredients ingredients={this.state.ingredients} change={this.ingredientHandler.bind(this)}/>
-                <button disabled={!this.state.purchasable}>Acheter</button>
+                <button disabled={!this.state.purchasable} onClick={()=>{this.modalHandle(true)}}>Acheter</button>
             </section>
         )
     }
 }
 
 export default Hamburger 
-

@@ -12,6 +12,14 @@
     transition: all 0.3s ease-out;
 }
 
+.Cross{
+    color : red; 
+    position: absolute;
+    top : 0; 
+    right : 0; 
+    cursor: pointer;
+}
+
 @media (min-width: 600px) {
     .Modal {
         width: 500px;
