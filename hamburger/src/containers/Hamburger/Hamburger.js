@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Ingredients from '../../components/Ingredients/Ingredients'
 import BurgerDrawing from '../../components/BurgerDrawing/BurgerDrawing'
+import Modal from '../../components/UI/Modal/Modal'
+import OrderSummary from '../../components/OrderSummary/OrderSummary'
 
 
 class Hamburger extends Component
@@ -62,6 +64,9 @@ class Hamburger extends Component
     {
         return(
             <section className="Hamburger">
+                <Modal>
+                    <OrderSummary ingredients={this.state.ingredients}/>
+                </Modal>
                 <h2>Votre hamburger</h2>
                 <p>Prix total : {this.state.price.toFixed(2)} $</p>
                 <BurgerDrawing ingredients={this.state.composition}/>
