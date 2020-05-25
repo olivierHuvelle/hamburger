@@ -4,7 +4,6 @@ import BurgerDrawing from '../../components/BurgerDrawing/BurgerDrawing'
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/OrderSummary/OrderSummary'
 
-
 class Hamburger extends Component
 {
     state = {
@@ -17,6 +16,7 @@ class Hamburger extends Component
         price : 0, 
         composition : [],
         purchasable : false,
+        purchasing : false,
     }
     
     ingredientHandler = (ingredientName, direction) => {
@@ -58,6 +58,10 @@ class Hamburger extends Component
 
     udpatePurchasable = () => {
         this.setState( prevState => ( {purchasable : prevState.price !== 0 ? true : false }))
+    }
+
+    purchaseHandler = () => {
+        this.setState({ purchasing : true }) //selon moi pas féroce ca ... il faudrait une croix pour fermer le modal 
     }
 
     render() 
