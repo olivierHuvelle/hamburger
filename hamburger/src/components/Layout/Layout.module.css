@@ -1,0 +1,7 @@
+.Main{
+    position: relative;
+    top : 60px;
+    box-sizing: border-box;
+    margin : 0;
+    padding: 1rem;
+}

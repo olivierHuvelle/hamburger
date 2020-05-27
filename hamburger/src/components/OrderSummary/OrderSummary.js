@@ -1,5 +1,6 @@
 import React from 'react'
 //import classes from './OrderSummary.module.css'
+import Button from '../UI/Button/Button'
 
 const OrderSummary = props => {
     
@@ -11,9 +12,13 @@ const OrderSummary = props => {
             <h2>Votre commande</h2>
             <p>Un burger délicieux avec les ingéredients : </p>
             {ingredientComponents}
-            <button>Continuer l'achat</button>
+            <Button type="Danger" click={()=>{props.cancel(false)}}>Annuler</Button>
+            <span>{props.price.toFixed(2)} $</span>
+            <Button type="Success" click={()=>{props.purchase()}}>Continuer</Button>
         </section>
     )
 }
 
 export default OrderSummary
+
+// faut je

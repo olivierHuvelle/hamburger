@@ -1,0 +1,11 @@
+.Button{
+    font-style: italic;
+}
+
+.Danger{
+    background-color : red;
+}
+
+.Success{
+    background-color: green;
+}
